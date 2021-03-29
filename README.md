@@ -13,8 +13,8 @@ Son pruebas de algunas pequeñas funciones de las librerías.
   - react-native-wifi-reborn (https://github.com/JuanSeBestia/react-native-wifi-reborn) 
   - react-native-netinfo (https://github.com/react-native-netinfo/react-native-netinfo)
   
-  ## Uso
-  El archivo App.js contiene diferentes componentes, cada componente hace referencia a una librería, 
-  para probarlo simplemente hay que descomentar el componente con el nombre de la librería que se quiera probar. 
-  Estos componentes están situados en la carpeta “libraries” dentro de la cual hay 2 subcarpetas “Wifi” y “Bluetooth” en ellas se encuentran los componentes, 
-  para hacer diferentes pruebas se debe cambiar el código de dentro de los componentes y después utlizarlo en el App.js.
+ ## Uso
+El archivo App.js contiene diferentes componentes, cada componente hace referencia a una librería, 
+para probarlo simplemente hay que descomentar el componente con el nombre de la librería que se quiera probar. 
+Estos componentes están situados en la carpeta “libraries” dentro de la cual hay 2 subcarpetas “Wifi” y “Bluetooth” en ellas se encuentran los componentes, 
+para hacer diferentes pruebas se debe cambiar el código de dentro de los componentes y después utlizarlo en el App.js.
