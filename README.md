@@ -14,6 +14,9 @@ Son pruebas de algunas pequeñas funciones de las librerías.
   - react-native-netinfo (https://github.com/react-native-netinfo/react-native-netinfo)
   
  ## Uso
+Después de clonar y abrir el proyecto en el editor de código ejecutar el comando
+``npm i`` o ``yarn install``
+
 El archivo App.js contiene diferentes componentes, cada componente hace referencia a una librería, 
 para probarlo simplemente hay que descomentar el componente con el nombre de la librería que se quiera probar. 
 Estos componentes están situados en la carpeta “libraries” dentro de la cual hay 2 subcarpetas “Wifi” y “Bluetooth” en ellas se encuentran los componentes, 
