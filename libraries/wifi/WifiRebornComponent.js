@@ -8,7 +8,7 @@ import {
   FlatList,
 } from 'react-native';
 
-import WifiManager from 'react-native-wifi-reborn';
+import WifiManager, {connectionStatus} from 'react-native-wifi-reborn';
 import {androidWifiLocationPermision} from './wifiRebornPermisions';
 
 export default function WifiRebornComponent() {
@@ -16,6 +16,10 @@ export default function WifiRebornComponent() {
   const [wifiSSID, setWifiSSID] = useState('');
   const [wifiIP, setWifiIP] = useState('');
   const [wifiList, setWifiList] = useState([]);
+  const [connectionStatus, setConnectionStatus] = useState('');
+  const [bssid, setBssid] = useState('');
+  const [signal, setSignal] = useState('');
+  const [frequency, setFrequency] = useState('');
 
   const locationPermision = async () => {
     try {
@@ -55,6 +59,23 @@ export default function WifiRebornComponent() {
     WifiManager.getIP().then(ip => {
       setWifiIP(ip);
     });
+
+    WifiManager.connectionStatus().then(status => {
+      console.log(status);
+      setConnectionStatus(status);
+    });
+
+    WifiManager.getBSSID().then(bssid => {
+      setBssid(bssid);
+    });
+
+    WifiManager.getCurrentSignalStrength().then(signal => {
+      setSignal(signal);
+    });
+
+    WifiManager.getFrequency().then(frequency => {
+      setFrequency(frequency);
+    });
   }, []);
 
   /**---------------RENDER ITEMS WIFI LIST----------- */
@@ -79,14 +100,30 @@ export default function WifiRebornComponent() {
 
   return (
     <View>
-      <Text>WIFI REBORN LIBRARY</Text>
-      <Text>- SSID {wifiSSID}</Text>
-      <Text>- Status {wifiStatuts}</Text>
-      <Text>- IP {wifiIP}</Text>
+      <Text>___WIFI REBORN LIBRARY___</Text>
+      <Text>---CURRENT NETWORK INFO---</Text>
+      <Text> -- SSID: {wifiSSID}</Text>
+      <Text> -- BSSID: {bssid}</Text>
+      <Text> -- Status: {wifiStatuts}</Text>
+      <Text> -- IP: {wifiIP}</Text>
+      <Text> -- Signal: {signal}</Text>
+      <Text> -- Frequency: {frequency}</Text>
+      <Text>
+        {' '}
+        -- Connection status:{' '}
+        {connectionStatus ? 'Connected to a wifi net' : 'Not connected'}
+      </Text>
+
       <Button
         title="Turn on wifi"
         onPress={() => WifiManager.setEnabled(true)}
       />
+
+      <Text>
+        {
+          '-----------------------------------------------------------------------------------------------------'
+        }
+      </Text>
       <Text>Wifi list: </Text>
       <FlatList
         data={wifiList}
