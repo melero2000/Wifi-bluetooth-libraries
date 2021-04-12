@@ -28,7 +28,7 @@ export default function App() {
 
       <Text>Wifi</Text>
       <View>
-        {/*<WifiRebornComponent />*/}
+        {<WifiRebornComponent />}
         {/*<NetInfoComponent />*/}
       </View>
     </View>
